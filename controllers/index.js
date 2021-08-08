@@ -1,17 +1,22 @@
-const model = require('../server/models');
+const category = require('../server/models').category;
 
-const { Category } = model;
-const category = async (req, res) => {
-    try {
-        const categories = await Category.findAll({
-            attributes: ['thumbnail', 'description']
-          });
-        return res.status(200).json({
-            categories,
-        });
-    } catch(error) {
-        return res.status(500).json({ error: error.message })
+module.exports = {
+    async getAllCategories(req, res){
+        try {
+            console.log("category", category);
+            const categories = await category.findAll({
+                attributes: ['id', 'title', 'thumbnail', 'description']
+              });
+            if(categories) {
+                 res.status(200).send(
+                    categories,
+                ); 
+            } else {
+                res.send(500).json({ error: "undefined"});
+            }
+          
+        } catch(error) {
+            return res.status(500).json({ error: error.message })
+        }
     }
-}
-
-module.exports = category;
+} 

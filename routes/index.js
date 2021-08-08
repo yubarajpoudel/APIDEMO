@@ -7,6 +7,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/category', controllers);
+router.get('/category', controllers.getAllCategories);
 
 module.exports = router;
