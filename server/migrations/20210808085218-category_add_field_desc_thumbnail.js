@@ -20,13 +20,11 @@ module.exports = {
     return Promise.all([
       queryInterface.removeColumn(
         'categories',
-        'thumbnail',
-        Sequelize.STRING),
+        'thumbnail'),
 
       queryInterface.removeColumn(
         'categories',
-        'description',
-        Sequelize.TEXT
+        'description'
       )
     ]);
   }
