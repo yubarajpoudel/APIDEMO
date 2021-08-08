@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  db:
+    container_name: postgres
+    image: mdillon/postgis:11-alpine
+    ports:
+     - "5429:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+ 
+  server:
+    env_file: .env
+    image: yubaraj/apidemo:1.0.0
+    restart: on-failure
+    command: ./docker-entrypoint.prod.sh
+    ports:
+      - "8000:3000"
+    volumes:
+      - ./media:/code/media
+      - ./static:/code/static
+      - .:/code
+    depends_on:
+      - db
+      - redis
