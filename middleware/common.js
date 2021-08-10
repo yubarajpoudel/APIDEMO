@@ -5,7 +5,7 @@ const validateAPIKey = async (req, res, next) => {
     next();
 }
 
-const authApi = {
+const authKey = {
   apivalidator: validateAPIKey
 }
-module.exports = authApi;
+module.exports = authKey;
