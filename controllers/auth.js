@@ -1,7 +1,7 @@
 const db = require("../server/models");
 const config = require("../config/auth.config");
-const User = db.user;
-const Role = db.role;
+const User = db.User;
+const Role = db.Roles;
 
 const Op = db.Sequelize.Op;
 
@@ -10,12 +10,7 @@ var bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
   // Save User to Database
-  User.create({
-    firstname: req.body.firstName,
-    lastname:req.body.lastName,
-    email: req.body.email,
-    password: bcrypt.hashSync(req.body.password, 8)
-  })
+  User.build(req.body).save()
     .then(user => {
       if (req.body.roles) {
         Role.findAll({
