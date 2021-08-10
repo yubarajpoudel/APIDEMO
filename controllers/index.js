@@ -16,7 +16,26 @@ module.exports = {
             }
           
         } catch(error) {
-            return res.status(500).json({ error: error.message })
+            res.status(500).json({ error: error.message })
+        }
+    },
+
+    async addCategory(req, res) {
+        try {
+            const body = req.body;
+            const toSave = {...body, thumbnail:req.file.path };
+            console.log(toSave);
+            if(body) {
+                category.build(toSave).save().then((newCategory) => {
+                    res.send(201).json({ message: "Category added success", data: json(newCategory)});
+                }).catch(error => {
+                    res.status(404).json({ error : error.message });
+                })
+            } else {
+                res.send(500).json({ error: "body is undefined"});
+            }
+        } catch(err) {
+            res.send(500).json({error: err.message });
         }
     }
 } 
