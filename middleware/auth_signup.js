@@ -1,8 +1,13 @@
-const db = require("../server/models");
-const { Roles, User} = db;
+const db = require("../server//models");
+const Roles = db.Roles;
+const User = db.User;
+var Sequelize = require('sequelize');
+const e = require("express");
+const Op = db.Sequelize.Op;
 
 const checkEmailExisted = async (req, res, next) => {
     // Email
+    console.log(User);
     User.findOne({
       where: {
         email: req.body.email
@@ -19,15 +24,22 @@ const checkEmailExisted = async (req, res, next) => {
 };
 
 const checkRolesExisted = async (req, res, next) => {
+  console.log("check roles")
   if (req.body.roles) {
-    for (let i = 0; i < req.body.roles.length; i++) {
-      if (!Roles.includes(req.body.roles[i])) {
-        res.status(400).send({
-          message: "Failed! Role does not exist = " + req.body.roles[i]
-        });
-        return;
-      }
-    }
+      Roles.findAll({
+        where: { 
+          name: {
+            [Op.or]: req.body.roles
+          }
+        }
+      }).then((result) => {
+        if(!resutl && result.length == 0) {
+          res.status(401).send({ error: 'Roles not found'});
+          return;
+        }
+      });
+  } else {
+    res.status(500).send({ error: 'Roles is missing'});
   }
   next();
 };
