@@ -1,6 +1,6 @@
 const validateAPIKey = async (req, res, next) => {
     if (req.headers['x-api-key'] !== 'abc') {
-        res.status(400).send({error: 'Invalid Api key'});
+        return res.status(400).json({error: 'Invalid Api key'});
     }
     next();
 }
