@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-const { verifySignUp } = require("../middleware");
+const verifySignUp = require("../middleware/index").verifySignUp;
 const controller = require("../controllers/auth.controller");
 
 router.post("/api/auth/signup",
     [
-      verifySignUp.checkEmailExisted,
-      verifySignUp.checkRolesExisted
+      verifySignUp.checkEmailExists,
+      verifySignUp.checkRolesExists
     ],
     controller.signup
   );

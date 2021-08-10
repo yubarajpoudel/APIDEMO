@@ -1,7 +1,7 @@
 const db = require("../server/models");
-const { ROLES, User} = db;
+const { Roles, User} = db;
 
-checkEmailExisted = (req, res, next) => {
+const checkEmailExisted = async (req, res, next) => {
     // Email
     User.findOne({
       where: {
@@ -18,10 +18,10 @@ checkEmailExisted = (req, res, next) => {
     });
 };
 
-checkRolesExisted = (req, res, next) => {
+const checkRolesExisted = async (req, res, next) => {
   if (req.body.roles) {
     for (let i = 0; i < req.body.roles.length; i++) {
-      if (!ROLES.includes(req.body.roles[i])) {
+      if (!Roles.includes(req.body.roles[i])) {
         res.status(400).send({
           message: "Failed! Role does not exist = " + req.body.roles[i]
         });
@@ -33,8 +33,8 @@ checkRolesExisted = (req, res, next) => {
 };
 
 const verifySignUp = {
-  checkEmailExisted: checkEmailExisted,
-  checkRolesExisted: checkRolesExisted
+  checkEmailExists: checkEmailExisted,
+  checkRolesExists: checkRolesExisted
 };
 
 module.exports = verifySignUp;
