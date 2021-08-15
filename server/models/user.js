@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       User.belongsToMany(models.Roles, {
         through: "user_roles",
         foreignKey: "userId",
-        otherKey: "roleId"
+        as: "roles"
       });
     }
   };
