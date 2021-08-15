@@ -7,7 +7,7 @@ var app = express()
 app.use(bodyParser.json({ type: 'application/*+json' }))
 var jsonParser = bodyParser.json()
 
-router.post("/api/auth/signup",
+router.post("/signup",
     [
       jsonParser,
       verifySignUp.checkEmailExists,
@@ -16,5 +16,5 @@ router.post("/api/auth/signup",
     controller.signup
   );
 
-router.post("/api/auth/signin", controller.signin);
+router.post("/signin", controller.signin);
 module.exports = router;

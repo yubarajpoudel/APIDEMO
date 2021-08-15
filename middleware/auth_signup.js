@@ -33,7 +33,7 @@ const checkRolesExisted = async (req, res, next) => {
           }
         }
       }).then((result) => {
-        if(!resutl && result.length == 0) {
+        if(!result && result.length == 0) {
           res.status(401).send({ error: 'Roles not found'});
           return;
         }

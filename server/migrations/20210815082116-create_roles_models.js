@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      groupId: {
+      roleId: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
