@@ -9,7 +9,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/category', controllers.getAllCategories);
-router.post('/category', upload.single('thumbnail'), controllers.addCategory);
+// category
+router.get('/category', controllers.category.allCategory);
+router.post('/category', upload.single('thumbnail'), controllers.category.addCategory);
+
+// news
+router.get('/news', controllers.news.all)
+router.post('/news', controllers.news.add)
 
 module.exports = router;
