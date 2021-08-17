@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   News.init({
-    category_id: DataTypes.STRING,
+    category_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
   }, {

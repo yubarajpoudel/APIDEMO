@@ -1,4 +1,5 @@
-const { Category } = require('../server/models');
+const db = require('../server/models');
+const Category = db.Category;
 
 const getAllCategories = async (req, res) => {
         try {
@@ -24,7 +25,7 @@ const getAllCategories = async (req, res) => {
             const toSave = {...body, thumbnail:req.file.path };
             console.log(toSave);
             if(body) {
-                Category.build(toSave).save().then((newCategory) => {
+                Category.build(toSave).then((newCategory) => {
                     res.status(201).json({ message: "Category added success", data: newCategory });
                 }).catch(error => {
                     res.status(404).json({ error : error.message });

@@ -12,7 +12,7 @@ module.exports = {
      * }], {});
     */
    return Promise.all([
-     queryInterface.bulkInsert('categories', [{
+     queryInterface.bulkInsert('Category', [{
        'title':'love diary',
        'description':'All latest love sayari',
        'createdAt': new Date(),
@@ -22,6 +22,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('categories', null, {});
+    await queryInterface.bulkDelete('Category', null, {});
   }
 };

@@ -12,11 +12,8 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
-      category_id: {
-        type: Sequelize.STRING
-      },
       description: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT 
       },
       createdAt: {
         allowNull: false,
