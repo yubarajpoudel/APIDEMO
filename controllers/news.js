@@ -1,13 +1,13 @@
-const { News } = require("../server/models/news")
+const { News } = require("../server/models")
 
 const getNews = async (req, res) => {
         try {
             const allNews = await News.findAll({
                 attributes: ['id', 'title', 'description']
               });
-            if(categories) {
+            if(allNews) {
                  res.status(200).send(
-                    categories,
+                    allNews,
                 ); 
             } else {
                 res.status(500).json({ error: "undefined"});
@@ -25,10 +25,10 @@ const addNews = async (req, res) => {
             const toSave = {
                 'title': body.title,
                 'description': body.description,
-                'category_id': body.category_id
+                'CategoryId': body.CategoryId
             }
             News.build(toSave).save().then((newCategory) => {
-                    res.status(201).json({ message: "Category added success", data: newCategory });
+                    res.status(201).json({ message: "News added success", data: newCategory });
                 }).catch(error => {
                     res.status(404).json({ error : error.message });
                 })

@@ -25,7 +25,7 @@ const getAllCategories = async (req, res) => {
             const toSave = {...body, thumbnail:req.file.path };
             console.log(toSave);
             if(body) {
-                Category.build(toSave).then((newCategory) => {
+                Category.create(toSave).then((newCategory) => {
                     res.status(201).json({ message: "Category added success", data: newCategory });
                 }).catch(error => {
                     res.status(404).json({ error : error.message });
