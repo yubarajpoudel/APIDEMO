@@ -12,9 +12,9 @@ module.exports = {
      * }], {});
     */
    return Promise.all([
-     queryInterface.bulkInsert('Category', [{
-       'title':'love diary',
-       'description':'All latest love sayari',
+     queryInterface.bulkInsert('Categories', [{
+       'title':'Daily News',
+       'description':'All latest daily news',
        'createdAt': new Date(),
        'updatedAt': new Date()
      }], {})
