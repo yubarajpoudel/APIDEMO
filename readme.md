@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="600" height="200" src="https://github.com/yubarajpoudel/APIDEMO/blob/master/node.png?raw=true">
+  <img width="400" height="200" src="https://github.com/yubarajpoudel/APIDEMO/blob/master/node.png?raw=true">
 </p>
 
 
