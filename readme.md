@@ -3,6 +3,15 @@ API Fundamental template
 
 This project is created for fundamental scratch requirement of project and to show the way how to start the API in node using express straight way with postgres as a database.
 
+### features
+1. User signin
+2. User signup with encypted password
+3. Category addition 
+4. Category list
+5. News addition
+6. News list and search by params
+7. API secured by JWT token.
+
 ### Setup the project
 
 1. clone the project
@@ -25,13 +34,13 @@ database configuration are stored in ``` server/config/config.json ```
 3. check containers are up or not  ``` docker ps -a ```
 4. create roles and db in db container.
    - execute container in bash mode ``` docker exec -it postgres bash ```
-   -  (create the roles and mirate)[]
+   - ![create the roles and mirate](https://github.com/yubarajpoudel/APIDEMO/blob/master/db.png?raw=true)
       
 
 
 More features are comming and will be added.
 
-(for more about author)[yubarajpoudel708@gmail.com]
+![for more about author][yubarajpoudel708@gmail.com]
 
 
 
