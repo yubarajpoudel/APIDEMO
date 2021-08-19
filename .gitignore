@@ -63,3 +63,4 @@ typings/
 server/config/config.json
 public/images/
 package-lock.json
+postgres-data

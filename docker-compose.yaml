@@ -11,15 +11,14 @@ services:
  
   server:
     env_file: .env
-    image: yubaraj/apidemo:1.0.0
+    container_name: server
+    image: apidemo:1.0.1
+    build: .
     restart: on-failure
-    command: ./docker-entrypoint.prod.sh
+    command: bash -c "npm install nodemon && npm run hotload"
     ports:
       - "8000:3000"
     volumes:
-      - ./media:/code/media
-      - ./static:/code/static
-      - .:/code
+      - ./:/usr/src/app/
     depends_on:
       - db
-      - redis
