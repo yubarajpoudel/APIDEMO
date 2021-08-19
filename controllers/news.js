@@ -1,13 +1,23 @@
-const { News } = require("../server/models")
+const { News } = require("../server/models");
+const category = require("./categories");
+const Op = require("../server/models").Sequelize.Op;
+const config = require("../config/app.config")
+
 
 const getNews = async (req, res) => {
         try {
-            const allNews = await News.findAll({
-                attributes: ['id', 'title', 'description']
+            const { count, rows } = await News.findAndCountAll({
+                where: {
+                  CategoryId: {
+                    [Op.eq]: req.query.category_id
+                  }
+                },
+                offset: 0,
+                limit: config.limit
               });
-            if(allNews) {
+            if(rows) {
                  res.status(200).send(
-                    allNews,
+                    rows,
                 ); 
             } else {
                 res.status(500).json({ error: "undefined"});
@@ -17,6 +27,10 @@ const getNews = async (req, res) => {
             res.status(500).send({'error': error.message })
         }
     };
+
+const deleteNews = async(req, res) => {
+
+};
 
 const addNews = async (req, res) => {
     try {
@@ -43,6 +57,7 @@ const addNews = async (req, res) => {
 
 const news = {
     'all': getNews,
-    'add': addNews
+    'add': addNews,
+    'deleteNews': deleteNews
 }
 module.exports = news;
