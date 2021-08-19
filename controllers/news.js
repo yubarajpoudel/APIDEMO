@@ -6,13 +6,11 @@ const config = require("../config/app.config")
 
 const getNews = async (req, res) => {
         try {
-            const { count, rows } = await News.findAndCountAll({
-                where: {
-                  CategoryId: {
-                    [Op.eq]: req.query.category_id
-                  }
-                },
-                offset: 0,
+            var catId = req.query.category_id,
+            offset = parseInt(req.query.offset || '0');
+            const rows = await News.findAll({
+                where: catId ? { CategoryId: catId }:{},
+                offset: offset,
                 limit: config.limit
               });
             if(rows) {
