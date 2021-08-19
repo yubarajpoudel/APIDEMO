@@ -1,3 +1,8 @@
+<p align="center">
+  <img width="600" height="200" src="https://github.com/yubarajpoudel/APIDEMO/blob/master/node.png?raw=true">
+</p>
+
+
 API Fundamental template
 =================
 
@@ -40,8 +45,4 @@ database configuration are stored in ``` server/config/config.json ```
 
 More features are comming and will be added.
 
-![for more about author][yubarajpoudel708@gmail.com]
-
-
-
-yubarajpoudel708@gmail.com
+![for more about author contact @yubarajpoudel708@gmail.com](yubarajpoudel708@gmail.com)
