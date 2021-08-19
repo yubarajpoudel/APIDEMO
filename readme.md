@@ -45,4 +45,4 @@ database configuration are stored in ``` server/config/config.json ```
 
 More features are comming and will be added.
 
-![for more about author contact @yubarajpoudel708@gmail.com](yubarajpoudel708@gmail.com)
+Suggestion are welcomed always at [yubarajpoudel708@gmail.com](yubarajpoudel708@gmail.com)
