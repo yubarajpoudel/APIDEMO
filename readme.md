@@ -16,6 +16,7 @@ This project is created for fundamental scratch requirement of project and to sh
 5. News addition
 6. News list and search by params
 7. API secured by JWT token.
+8. Test case
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7b078042249193db1821?action=collection%2Fimport)
 

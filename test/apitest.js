@@ -5,7 +5,7 @@ var chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 
 describe('signin', () => {
- describe('/POST media', () => {
+ describe('/POST sigin in user test', () => {
      it('it should sign in user', (done) => {
         var host = "http://127.0.0.1:8000";
         var path = "/signin";    
